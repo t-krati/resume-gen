@@ -1,25 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
-
+import BasicDetails from "./Components/BasicDetails";
+import Template from "./Components/Template1";
+import { Route , BrowserRouter as Router } from "react-router-dom";
+import React, {useState} from "react";
+import useSignUpForm from "./Components/CustomHooks";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const {inputs, handleInputChange, handleSubmit} = useSignUpForm({});
+  return <Router>
+      <Route path = "/" 
+            component = {BasicDetails} 
+            render = {(props) => <BasicDetails handleInputChange = {handleInputChange} 
+                                                handleSubmit = {handleSubmit} 
+                                                inputs = {inputs}/>} 
+            exact/> 
+      <Route path = "/resume" 
+            component = {Template} 
+          render = {(props) => <Template inputs = {inputs} />}
+      /> 
+    </Router>
 }
 
 export default App;
