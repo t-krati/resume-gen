@@ -8,17 +8,17 @@ import useSignUpForm from "./Components/CustomHooks";
 function App() {
 
   const {inputs, handleInputChange, handleSubmit} = useSignUpForm({});
+  
   return <Router>
-      <Route path = "/" 
-            component = {BasicDetails} 
-            render = {(props) => <BasicDetails handleInputChange = {handleInputChange} 
-                                                handleSubmit = {handleSubmit} 
-                                                inputs = {inputs}/>} 
-            exact/> 
-      <Route path = "/resume" 
-            component = {Template} 
-          render = {(props) => <Template inputs = {inputs} />}
-      /> 
+      <Route path = "/" exact>
+      <BasicDetails handleInputChange = {handleInputChange}
+        handleSubmit = {handleSubmit} 
+        inputs = {inputs}
+      />
+      </Route>
+      <Route path = "/resume" >
+        <Template inputs = {inputs}/>
+      </Route>
     </Router>
 }
 

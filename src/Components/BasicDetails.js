@@ -27,6 +27,7 @@ function BasicDetails(props) {
       fontSize: "40px",
       marginBottom: "40px"
     }
+
     return <div>
     <div class = "header" style = {headerStyle}>Enter Your Details</div>
     <form onSubmit = {props.handleSubmit}>
@@ -92,9 +93,9 @@ function BasicDetails(props) {
 
         <TextField label = "Project Description" type="text" name="projectdescription" onChange={props.handleInputChange} value={props.inputs.projectdescription}required />
       </div>
-    </div>
+    </div> 
     
-    <Button type="submit">Sign Up</Button>
+    <Button type="submit">Submit</Button>
     
     <Link to ="/resume">
     <Button>View Resume</Button>

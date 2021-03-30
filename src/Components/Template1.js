@@ -13,8 +13,8 @@ const Template1 = (props) => {
         paddingRight: "40px"
     }
     return <div style = {mystyle}>
-        <Header details = {props.inputs} />
-        <Body details = {props.inputs} />
+            <Header details = {props.inputs} />
+            <Body details = {props.inputs} />
     </div>;
 
 }
