@@ -12,9 +12,11 @@ const Template1 = (props) => {
         paddingLeft: "40px",
         paddingRight: "40px"
     }
-    return <div style = {mystyle}>
+    return <div background = "blue" padding = "10px">
+            <div style = {mystyle}>
             <Header details = {props.inputs} />
             <Body details = {props.inputs} />
+        </div> 
     </div>;
 
 }

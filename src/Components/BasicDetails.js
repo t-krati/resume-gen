@@ -1,104 +1,102 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import useSignUpForm from "./CustomHooks";
-import ReactDOM from "react-dom";
-import Template from "./Template1";
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
 import { Link } from "react-router-dom";
-import "../Body.css";
-//import { useForm } from "react-hook-form";
-function BasicDetails(props) {
-  const signup = () => {
-    return (`User Created!
-           Name: ${props.inputs.firstName} ${props.inputs.lastName}
-           Email: ${props.inputs.email}`);
-  }
-  /*const renderTemplate = () => {
-    //console.log(inputs);
-    ReactDOM.render(<Template details = {inputs}/>,document.getElementById("template"));
-  }*/
-  //const {inputs, props.handleInputChange, handleSubmit} = useSignUpForm(signup);
-  
+import "./FormStyle.css";
+import { TextareaAutosize } from "@material-ui/core";
 
-    const headerStyle  = {
-      background: "#3D72A1",
-      padding: "30px",
-      color: "white",
-      fontSize: "40px",
-      marginBottom: "40px"
+function BasicDetails(props) {
+
+    const buttonStyle = {
+      background: "pink",
+      margin: "5px",
+      float: "left"
     }
 
     return <div>
-    <div class = "header" style = {headerStyle}>Enter Your Details</div>
-    <form onSubmit = {props.handleSubmit}>
-    <div class = "form">
-    <div>
+    <div className = "headerStyle" >Enter Your Details</div>
+    <form onSubmit = {props.handleSubmit} className = "formStyle">
+    <div class = "Introduction"  className = "section"><h3>About you</h3>
+
+      <TextField className = "TextField" margin = "normal" label = "First Name" variant="outlined"  type="text"  name="firstName" onChange={props.handleInputChange} value={props.inputs.firstName} required />
       
-      <TextField label = "First Name" type="text"  name="firstName" onChange={props.handleInputChange} value={props.inputs.firstName} required />
+      <TextField className = "TextField" margin = "normal" label = "Last Name"  variant="outlined"  type="text" name="lastName" onChange={props.handleInputChange} value={props.inputs.lastName}required />
+        
+      <TextField className = "TextField" margin = "normal" label = "About" variant="outlined"  type="text" name="about" onChange={props.handleInputChange} value={props.inputs.about}required />
       
-      <TextField label = "Last Name" type="text" name="lastName" onChange={props.handleInputChange} value={props.inputs.lastName}required />
+      <TextField className = "TextField" margin = "normal" label = "Email Address" variant="outlined" type="email" name="email" onChange={props.handleInputChange} value={props.inputs.email}required />
+    
+      <TextField className = "TextField" margin = "normal" label = "Phone" type="number" variant="outlined" name="phone" onChange={props.handleInputChange} value={props.inputs.phone}/>
+    
+      <TextField className = "TextField" margin = "normal" label = "Address" variant="outlined"  type="text" name="address" onChange={props.handleInputChange} value={props.inputs.address} />
+    
     </div>
-    <div>
-    <div>
-      <TextField label = "About" type="text" name="about" onChange={props.handleInputChange} value={props.inputs.about}required />
-    </div>
+
+    <div class = "education-detail" className = "section" ><h3>Education Details</h3>
       
-      <TextField label = "Email Address" type="email" name="email" onChange={props.handleInputChange} value={props.inputs.email}required />
+        <TextField className = "TextField" margin = "normal" label = "Degree" variant="outlined"  type="text" name="degree" onChange={props.handleInputChange} value={props.inputs.degree} />
+      
+        <TextField className = "TextField" margin = "normal" label = "College" variant="outlined"  type="text" name="college" onChange={props.handleInputChange} value={props.inputs.college} />
+      
+        <TextField className = "TextField" margin = "normal" label = "Start" type="date" variant="outlined" name="collegestart" onChange={props.handleInputChange} value={props.inputs.collegestart} />
+      
+        <TextField className = "TextField" margin = "normal" label = "End" type="date" variant="outlined" name="collegeend" onChange={props.handleInputChange} value={props.inputs.collegeend} />
+      
     </div>
-    <div>
-      <TextField label = "Phone" type="number" name="phone" onChange={props.handleInputChange} value={props.inputs.phone}/>
-    </div>
-    <div>
-      <TextField label = "Address" type="text" name="address" onChange={props.handleInputChange} value={props.inputs.address} />
-    </div>
-    </div>
-    <div class = "education-detail">
-      <div>
-        <TextField label = "Degree" type="text" name="degree" onChange={props.handleInputChange} value={props.inputs.degree} />
-      </div>
-      <div>
-        <TextField label = "College" type="text" name="college" onChange={props.handleInputChange} value={props.inputs.college} />
-      </div>
-      <div>
-        <TextField label = "Start" type="date" name="collegestart" onChange={props.handleInputChange} value={props.inputs.collegestart} />
-      </div>
-      <div>
-        <TextField label = "End" type="date" name="collegeend" onChange={props.handleInputChange} value={props.inputs.collegeend} />
-      </div>
-    </div>
-    <div class = "work-details">
-      <div>
-        <TextField label = "Company" type="text" name="company" onChange={props.handleInputChange} value={props.inputs.company}required />
-      </div>
-      <div>
-        <TextField label = "Role" type="text" name="role" onChange={props.handleInputChange} value={props.inputs.role}required />
-      </div>
-      <div>
-        <TextField label = "Responsibilities" type="text" name="responsibilities" onChange={props.handleInputChange} value={props.inputs.responsibilities}required />
-      </div>
-      <div>
-        <TextField label = "Start" type="date" name="workstart" onChange={props.handleInputChange} value={props.inputs.workstart} />
-      </div>
-      <div>
-        <TextField label = "End" type="date" name="workend" onChange={props.handleInputChange} value={props.inputs.workend}
+    <div class = "work-details" className = "section" ><h3>Work Details</h3>
+      
+        <TextField className = "TextField " margin = "normal" label = "Employer" variant="outlined"  type="text" name="Employer" onChange={props.handleInputChange} value={props.inputs.company}required />
+      
+        <TextField className = "TextField " margin = "normal" label = "Role" variant="outlined"  type="text" name="role" onChange={props.handleInputChange} value={props.inputs.role}required />
+      
+        <TextField className = "TextField " margin = "normal" label = "Responsibilities" variant="outlined"  type="text" name="responsibilities" rowsMin={3} onChange={props.handleInputChange} value={props.inputs.responsibilities}required />
+      
+        <TextField className = "TextField " margin = "normal" label = "City" variant="outlined"  type="text" name="workcity" onChange={props.handleInputChange} value={props.inputs.workcity}required />
+        
+        <TextField className = "TextField " margin = "normal" label = "State" variant="outlined"  type="text" name="workstate" onChange={props.handleInputChange} value={props.inputs.workstate}required />
+
+        <TextField className = "TextField " margin = "normal" label = "Start" type="date" variant="outlined" name="workstart" onChange={props.handleInputChange} value={props.inputs.workstart} />
+         
+        <TextField className = "TextField " margin = "normal" label = "End" type="date" variant="outlined" name="workend" onChange={props.handleInputChange} value={props.inputs.workend}
          />
-      </div>
+     
     </div>
-    <div class = "project-detail">
-      <div>
+    <div class = "project-detail"  className = "section" ><h3>Project Details</h3>
+      
+        <TextField className = "TextField" margin = "normal" label = "Project Title" variant="outlined"  type="text" name="projecttitle" onChange={props.handleInputChange} value={props.inputs.projecttitle}required />
 
-        <TextField label = "Project Title" type="text" name="projecttitle" onChange={props.handleInputChange} value={props.inputs.projecttitle}required />
-      </div>
-      <div>
+        <TextField className = "TextField" margin = "normal" label = "Project Description"  variant="outlined"  type="text" name="projectdescription" onChange={props.handleInputChange} value={props.inputs.projectdescription}required />
+     
+    </div> 
 
-        <TextField label = "Project Description" type="text" name="projectdescription" onChange={props.handleInputChange} value={props.inputs.projectdescription}required />
-      </div>
+    <div class = "skills"  className = "section" ><h3>Skills</h3>
+      
+        <TextField className = "TextField" margin = "normal" label = "Skill" variant="outlined"  type="text" name="skill" onChange={props.handleInputChange} value={props.inputs.skill}required />
+
+        <FormControl>
+        <InputLabel id="demo-simple-select-label">Skill Level</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={props.inputs.skilllevel}
+          onChange={props.handleInputChange}
+        >
+          <MenuItem value={10}>Beginner</MenuItem>
+          <MenuItem value={20}>Medium</MenuItem>
+          <MenuItem value={30}>Good</MenuItem>
+          <MenuItem value={40}>Expert</MenuItem>
+        </Select>
+      </FormControl>
     </div> 
     
-    <Button type="submit">Submit</Button>
+    <Button type="submit" className = "button" style = {buttonStyle} variant="contained" color="secondary">Submit</Button>
     
-    <Link to ="/resume">
-    <Button>View Resume</Button>
+    <Link to ="/resume-gen/myresume">
+    <Button className = "button" variant="contained" color="secondary" style = {buttonStyle}>View Resume</Button>
     </Link>
     
     

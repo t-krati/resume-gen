@@ -10,13 +10,13 @@ function App() {
   const {inputs, handleInputChange, handleSubmit} = useSignUpForm({});
   
   return <Router>
-      <Route path = "/" exact>
+      <Route path = "/resume-gen" exact>
       <BasicDetails handleInputChange = {handleInputChange}
         handleSubmit = {handleSubmit} 
         inputs = {inputs}
       />
       </Route>
-      <Route path = "/resume" >
+      <Route path = "/resume-gen/myresume" >
         <Template inputs = {inputs}/>
       </Route>
     </Router>

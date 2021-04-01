@@ -6,7 +6,7 @@ function ProjectDetails(props) {
     }
     return <div>
         <SubHeading text = "Project Details" />
-        <span><strong>{props.details.projecttitle}</strong></span><br />
+        <span>{props.details.projecttitle}</span><br />
         <span>{props.details.projectdescription}</span><br />
     </div>
 }
