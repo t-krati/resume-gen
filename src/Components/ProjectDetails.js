@@ -6,8 +6,9 @@ function ProjectDetails(props) {
     }
     return <div>
         <SubHeading text = "Project Details" />
-        <span>{props.details.projecttitle}</span><br />
-        <span>{props.details.projectdescription}</span><br />
+        <span style = {{fontWeight: 700}}>{props.details.projecttitle} | {props.details.projectstart} {props.details.projectend}</span><br />
+        <ul>
+            <li>{props.details.projectdescription}</li></ul>
     </div>
 }
 export default ProjectDetails;

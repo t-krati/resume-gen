@@ -6,18 +6,20 @@ const Template1 = (props) => {
 
     const mystyle = {
         size: "A4",
+        height: "1000px",
+        padding: "50px",
         borderStyle: "2px solid black",
-        marginLeft: "20px",
-        marginRight: "20px",
-        paddingLeft: "40px",
-        paddingRight: "40px"
+        background: "white",
+        marginLeft: "10%",
+        marginRight: "10%",
+        paddingLeft: "60px",
+        paddingRight: "60px"
     }
-    return <div background = "blue" padding = "10px">
-            <div style = {mystyle}>
-            <Header details = {props.inputs} />
+    return <div style = {mystyle}>
+            <Header style = {{height: "20%"}} details = {props.inputs} />
             <Body details = {props.inputs} />
         </div> 
-    </div>;
+    ;
 
 }
 export default Template1; 

@@ -7,11 +7,13 @@ function WorkDetails(props) {
     }
     return <div>
         <SubHeading text = "Work Details" />
-        <span>company : {props.details.company}</span><br />
-        <span>role : {props.details.role}</span><br />
-        <span>responsibilities : {props.details.responsibilities}</span><br />
-        <span>Work Start Date : {props.details.workstart}</span><br />
-        <span>Work End Date: {props.details.workend}</span>
+        <span style = {{fontSize: "large", fontWeight: 700}}>{props.details.role}</span><br />
+        <span style = {{fontWeight: 700}}>{props.details.company}, {props.details.workcity}, {props.details.workstate}</span>
+        <span style = {{fontWeight: 700}}> | {props.details.workstart}  {props.details.workend}</span><br />
+        <ul>
+            <li>{props.details.responsibilities}</li>
+        </ul>
+        
     </div>
 }
 

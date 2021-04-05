@@ -6,8 +6,7 @@ function Header(props) {
     const mystyle = {
         color: "black",
         textAlign: "center",
-        borderBottom :"2px solid black",
-        borderImage: "linear-gradient(to right)"
+        fontFamily: "Times New Roman"
     }
     return <div style = {mystyle}>
         <h1>{props.details.firstName} {props.details.lastName}</h1> 
