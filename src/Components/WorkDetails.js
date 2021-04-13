@@ -7,12 +7,18 @@ function WorkDetails(props) {
     }
     return <div>
         <SubHeading text = "Work Details" />
-        <span style = {{fontSize: "large", fontWeight: 700}}>{props.details.role}</span><br />
-        <span style = {{fontWeight: 700}}>{props.details.company}, {props.details.workcity}, {props.details.workstate}</span>
-        <span style = {{fontWeight: 700}}> | {props.details.workstart}  {props.details.workend}</span><br />
-        <ul>
-            <li>{props.details.responsibilities}</li>
-        </ul>
+        {props.workInfos.map((workInfo) => {
+            return <div>
+            <span style = {{fontSize: "large", fontWeight: 700}}>{workInfo.role}</span><br />
+            <span style = {{fontWeight: 700}}>{workInfo.company}, {workInfo.workcity}, {workInfo.workstate}</span>
+            <span style = {{fontWeight: 700}}> | {workInfo.workstart}  {workInfo.workend}</span><br />
+             <ul>
+                <li>{workInfo.responsibilities}</li>
+            </ul>
+            </div>
+        })}
+        
+        
         
     </div>
 }

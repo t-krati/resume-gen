@@ -8,11 +8,11 @@ import Skill from "./Skills.js"
 function Body(props) {
     return <div>
         <SubHeading text = "About" />
-        <div>{props.details.about}</div>
-        <Education details = {props.details} /> 
-        <Work details = {props.details} />
-        <Project details = {props.details}/>
-        <Skill details = {props.details} />
+        <div>{props.inputs.about}</div>
+        <Education educationInfos = {props.inputs.educationInfos} /> 
+        <Work workInfos = {props.inputs.workInfos} />
+        <Project projects = {props.inputs.projects}/>
+        <Skill skills = {props.inputs.skills} />
     </div>
 }
 export default Body;

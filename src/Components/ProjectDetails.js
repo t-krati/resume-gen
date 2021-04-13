@@ -6,9 +6,14 @@ function ProjectDetails(props) {
     }
     return <div>
         <SubHeading text = "Project Details" />
-        <span style = {{fontWeight: 700}}>{props.details.projecttitle} | {props.details.projectstart} {props.details.projectend}</span><br />
+        {props.projects.map((project) => {
+            return <div>
+            <span style = {{fontWeight: 700}}>{project.projecttitle} | {project.projectstart} {project.projectend}</span><br />
         <ul>
-            <li>{props.details.projectdescription}</li></ul>
+            <li>{project.projectdescription}</li></ul>
+            </div>
+        })}
+        
     </div>
 }
 export default ProjectDetails;

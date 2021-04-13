@@ -1,6 +1,7 @@
 import React from "react";
 import SubHeading from "./SubHeading";
 
+
 function Skill(props) {
 
     function showRating(n) {
@@ -15,11 +16,14 @@ function Skill(props) {
         return <span>{rating}</span>;
 
     }
-return <div>
-    <SubHeading text = "Skills" />
-    <span>{props.details.skill} </span>
-    <span style = {{width: "10%"}}></span>
-    <span> {showRating(props.details.skilllevel)}</span>
+return <div>  <SubHeading text = "Skills" />
+    {props.skills.map((skill) => {
+        return <div>    
+        <span>{skill.skillname} </span>
+        <span style = {{width: "10%"}}></span>
+        <span> {showRating(skill.skilllevel)}</span></div>
+    })}
+    
 </div>
 }
 export default Skill;

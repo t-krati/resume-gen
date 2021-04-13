@@ -14,7 +14,7 @@ import SkillForm from "./Components/SkillForm";
 
 function App() {
 
-  const {inputs, handleInputChange, handleSubmit} = useSignUpForm({});
+  const {inputs, handleInputChange, handleSubmit, handleDynamicAddition, handleDynamicRemoval,handleInputArrayChange} = useSignUpForm({});
   
   return <Router>
 
@@ -32,22 +32,34 @@ function App() {
     
     <Route path = "/resume-gen/education">
       <EducationForm inputs = {inputs} handleInputChange = {handleInputChange}
-        handleSubmit = {handleSubmit} />
+        handleSubmit = {handleSubmit} handleDynamicAddition = {handleDynamicAddition} 
+        handleDynamicRemoval = {handleDynamicRemoval}
+        handleInputArrayChange = {handleInputArrayChange}
+        />
       </Route>
     
     <Route path = "/resume-gen/work">
       <WorkForm inputs = {inputs} handleInputChange = {handleInputChange}
-        handleSubmit = {handleSubmit} />
+        handleSubmit = {handleSubmit} handleDynamicAddition = {handleDynamicAddition} 
+        handleDynamicRemoval = {handleDynamicRemoval}
+        handleInputArrayChange = {handleInputArrayChange}
+        />
     </Route>
 
     <Route path = "/resume-gen/project">
       <ProjectForm inputs = {inputs} handleInputChange = {handleInputChange}
-        handleSubmit = {handleSubmit} />
+        handleSubmit = {handleSubmit} handleDynamicAddition = {handleDynamicAddition}
+        handleDynamicRemoval = {handleDynamicRemoval}
+        handleInputArrayChange = {handleInputArrayChange}
+        />
      </Route>
     
     <Route path = "/resume-gen/skills">
       <SkillForm inputs = {inputs} handleInputChange = {handleInputChange}
-        handleSubmit = {handleSubmit} />
+        handleSubmit = {handleSubmit} handleDynamicAddition = {handleDynamicAddition}
+        handleDynamicRemoval = {handleDynamicRemoval}
+        handleInputArrayChange = {handleInputArrayChange}
+        />
     </Route>
 
     <Route path = "/resume-gen/myresume" >

@@ -6,7 +6,7 @@ const Template1 = (props) => {
 
     const mystyle = {
         size: "A4",
-        height: "1000px",
+        
         padding: "50px",
         borderStyle: "2px solid black",
         background: "white",
@@ -16,8 +16,8 @@ const Template1 = (props) => {
         paddingRight: "60px"
     }
     return <div style = {mystyle}>
-            <Header style = {{height: "20%"}} details = {props.inputs} />
-            <Body details = {props.inputs} />
+            <Header style = {{height: "20%"}} inputs = {props.inputs} />
+            <Body inputs = {props.inputs} />
         </div> 
     ;
 
