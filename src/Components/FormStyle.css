@@ -5,6 +5,10 @@ body {
 
 }
 
+.errors {
+  color: rgb(212, 2, 2);
+}
+
 
 .headerStyle {
     background: #3D72A1;
@@ -26,7 +30,7 @@ body {
     margin: 0 auto;
   }
 
-  .Textfield {
+  .TextField {
     margin: 20px;
     display: block;
     background-color: rgb(248, 247, 245);

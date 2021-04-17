@@ -8,11 +8,11 @@ const spanstyle = {
 }
 return <div>
     <SubHeading text = "Education Details" />
-    {props.educationInfos.map((educationInfo) => {
-        return <div>
-        <span style = {spanstyle}>{educationInfo.degree} | {educationInfo.collegestart} - {educationInfo.collegeend}</span><br />
-        <span style = {spanstyle}>{educationInfo.college}, {educationInfo.collegecity}, {educationInfo.collegestate}</span><br />
-        <span><strong>CGPA: </strong>{educationInfo.collegegpa}</span>
+    {props.educationInfos.map((educationInfo,index) => {
+        return <div key = {index}>
+        <span style = {spanstyle}>{educationInfo.degree} | {educationInfo.collegeStart} - {educationInfo.collegeEnd}</span><br />
+        <span style = {spanstyle}>{educationInfo.college}, {educationInfo.collegeCity}, {educationInfo.collegeState}</span><br />
+        <span><strong>CGPA: </strong>{educationInfo.collegeGPA}</span>
         </div>
     })}
     

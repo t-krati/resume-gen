@@ -12,25 +12,26 @@ function ProjectForm(props) {
         float: "left"
       }
 
-    return (<div class = "project-detail"  className = "section" ><h3>Project Details</h3>
+    return (<div name = "project-detail"  className = "section" ><h3>Project Details</h3>
       
       {props.inputs.projects.map((project,index) => {
-        return <div>
-        <TextField className = "TextField" margin = "normal" label = "Project Title" variant="outlined"  type="text" name="projecttitle" onChange={(event) => props.handleInputArrayChange("projects",index,event)} value={project.projecttitle}required />
-
+        return <div key = {index}>
+        <TextField className = "TextField" margin = "normal" label = "Project Title" variant="outlined"  type="text" name="projectTitle" onChange={(event) => props.handleInputArrayChange("projects",index,event)} value={project.projectTitle}required /><br/>
+        {props.errors.projects.length > index && <span className = "errors">{props.errors.projects[index].projectTitle}</span>}<br/>
         <TextareaAutosize 
           style = {{width: "50%"}}
           rowsMin = {10}
           placeholder="Describe your Project"
-          name="projectdescription" 
+          name="projectDescription" 
           onChange={(event) => props.handleInputArrayChange("projects",index,event)} 
-          value={project.projectdescription}
-        />
-
-        <TextField className = "Textfield " margin = "normal" label = "Start" type="date" variant="outlined" name="projectstart" onChange={(event) => props.handleInputArrayChange("projects",index,event)} value={project.projectstart} />
- 
-        <TextField className = "Textfield " margin = "normal" label = "End" type="date" variant="outlined" name="projectend" onChange={(event) => props.handleInputArrayChange("projects",index,event)} value={project.projectend}
-        />
+          value={project.projectDescription}
+        /><br/>
+        {props.errors.projects.length > index && <span className = "errors">{props.errors.projects[index].projectDescription}</span>}<br/>
+        <TextField className = "Textfield " margin = "normal" label = "Start" type="date" variant="outlined" name="projectStart" onChange={(event) => props.handleInputArrayChange("projects",index,event)} value={project.projectStart} /><br/>
+        {props.errors.projects.length > index && <span className = "errors">{props.errors.projects[index].projectStart}</span>}<br/>
+        <TextField className = "Textfield " margin = "normal" label = "End" type="date" variant="outlined" name="projectEnd" onChange={(event) => props.handleInputArrayChange("projects",index,event)} value={project.projectEnd}
+        /><br/>
+        {props.errors.projects.length > index && <span className = "errors">{props.errors.projects[index].projectEnd}</span>}<br/>
         </div>
       })}
     
@@ -40,7 +41,7 @@ function ProjectForm(props) {
     <Link to ="/resume-gen/work">
     <Button className = "button" variant="contained" color="secondary" style = {buttonStyle}>Previous</Button>
     </Link>
-  
+    <Button type = "submit" onClick = {(event) => {props.handleSubmit(event,"projects")}} className = "button" variant="contained" color="secondary" style = {buttonStyle}>Validate Data</Button>
    <Link to ="/resume-gen/skills">
     <Button className = "button" variant="contained" color="secondary" style = {buttonStyle}>Next</Button>
     </Link>

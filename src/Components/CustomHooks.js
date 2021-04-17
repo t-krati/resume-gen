@@ -1,17 +1,30 @@
-import React, {useState} from "react";
+import {useState} from "react";
 
-const useSignUpForm = (callback) => {
+const useSignUpForm = (callback,validate) => {
     
-    const [inputs, setInputs] = useState({ basicInfo : {}, 
+    const [inputs, setInputs] = useState({ firstName: "",
+                                        lastName: "",
+                                        email : "",
+                                        address : "", 
                                         educationInfos : [{}],
                                         workInfos: [{}],
                                         projects: [{}],
                                         skills : [{}]});
-    const handleSubmit = (event) => {
+ 
+    const [errors,setErrors] = useState({firstName: "",
+    lastName: "",
+    email : "",
+    address : "", 
+    educationInfos : [{}],
+    workInfos: [{}],
+    projects: [{}],
+    skills : [{}]});  
+
+    const handleSubmit = (event,section) => {
         if(event) {
             event.preventDefault();
+            setErrors(validate(inputs,section,errors));
         }
-        callback();
     }; 
 
     const handleInputChange = (event) => {
@@ -44,7 +57,8 @@ const useSignUpForm = (callback) => {
         handleSubmit,
         handleDynamicAddition,
         handleDynamicRemoval,
-        handleInputArrayChange    
+        handleInputArrayChange,
+        errors    
       };
 } 
 

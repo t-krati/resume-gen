@@ -1,12 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import "./FormStyle.css";
-import InfoForm from './InfoForm';
-import EducationForm from './EducationForm';
-import WorkForm from './EducationForm';
-import SkillForm from './SkillForm';
-import ProjectForm from './ProjectForm';
-import { Route , BrowserRouter as Router , Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function BasicDetails(props) {
 

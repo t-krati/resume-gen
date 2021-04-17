@@ -6,7 +6,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import { Link } from "react-router-dom";
 import "./FormStyle.css";
-import { TextareaAutosize } from "@material-ui/core";
 
 function SkillForm(props) {
 
@@ -16,19 +15,20 @@ function SkillForm(props) {
     float: "left"
   }
 
-    return (<div class = "skills"  className = "section" ><h3>Skills</h3>
+    return (<div name = "skills"  className = "section" ><h3>Skills</h3>
     
     {props.inputs.skills.map((skill,index) => {
-      return <div>
-      <TextField className = "TextField" margin = "normal" label = "Skill" variant="outlined"  type="text" name="skillname" onChange={(event) => props.handleInputArrayChange("skills",index,event)} value={skill.skillname} 
-      required />
+      return <div key = {index}>
+      <TextField className = "TextField" margin = "normal" label = "Skill" variant="outlined"  type="text" name="skillName" onChange={(event) => props.handleInputArrayChange("skills",index,event)} value={skill.skillName} 
+      required /><br/>
+      {props.errors.skills.length > index && <span className = "errors">{props.errors.skills[index].skillName}</span>}<br/>
       <FormControl>
       <InputLabel id="demo-simple-select-label">Skill Level</InputLabel>
       <Select
       labelId="demo-simple-select-label"
       id="demo-simple-select"
-      name="skilllevel"
-      value={skill.skilllevel}
+      name="skillLevel"
+      value={skill.skillLevel}
       onChange={(event) => props.handleInputArrayChange("skills",index,event)}
 >
       <MenuItem value={1}>Beginner</MenuItem>
@@ -37,16 +37,17 @@ function SkillForm(props) {
       <MenuItem value={4}>Very Good</MenuItem>
       <MenuItem value={5}>Expert</MenuItem>
       </Select>
-      </FormControl>
+      </FormControl><br/>
+      {props.errors.skills.length > index && <span className = "errors">{props.errors.skills[index].skillLevel}</span>}<br/>
       </div>
     })}
-    
+   
     <Button className = "button" variant="contained" name = "skills" color="secondary" style = {buttonStyle} onClick = {props.handleDynamicAddition} >+</Button>
     <Button className = "button" variant="contained" name = "skills" color="secondary" style = {buttonStyle} onClick = {props.handleDynamicRemoval} >-</Button>
   <Link to ="/resume-gen/project">
     <Button className = "button" variant="contained" color="secondary" style = {buttonStyle}>Previous</Button>
     </Link>
-  
+    <Button type = "submit" onClick = {(event) => {props.handleSubmit(event,"skills")}} className = "button" variant="contained" color="secondary" style = {buttonStyle}>Validate Data</Button>
    <Link to ="/resume-gen/myresume">
     <Button className = "button" variant="contained" color="secondary" style = {buttonStyle}>Next</Button>
     </Link>

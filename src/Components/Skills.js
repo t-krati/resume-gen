@@ -17,11 +17,11 @@ function Skill(props) {
 
     }
 return <div>  <SubHeading text = "Skills" />
-    {props.skills.map((skill) => {
-        return <div>    
-        <span>{skill.skillname} </span>
+    {props.skills.map((skill,index) => {
+        return <div key = {index}>    
+        <span>{skill.skillName} </span>
         <span style = {{width: "10%"}}></span>
-        <span> {showRating(skill.skilllevel)}</span></div>
+        <span> {showRating(skill.skillLevel)}</span></div>
     })}
     
 </div>
