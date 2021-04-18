@@ -13,6 +13,12 @@
       if(!inputs.address)
       errors.address = "Address is required.";
 
+      if(!inputs.phone)
+      errors.phone = "Please enter your phone no.";
+
+      if(!inputs.about)
+      errors.about = "Please enter a short bio.";
+
  }
  function validateEducationInfo(educationInfos, errors) {
         errors.educationInfos.length = educationInfos.length;
@@ -94,7 +100,9 @@
         newErrors = {...errors, firstName: newErrors.firstName,
                         lastName: newErrors.lastName,
                         email: newErrors.email,
-                        address: newErrors.address};
+                        phone: newErrors.phone,
+                        address: newErrors.address,
+                        about: newErrors.about};
      }
     if(section === "educationInfos") {
        newErrors.educationInfos = validateEducationInfo(inputs.educationInfos,newErrors);

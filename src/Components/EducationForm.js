@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import { Link , Redirect } from "react-router-dom";
 import "./FormStyle.css";
 
 
@@ -13,6 +13,21 @@ function EducationForm(props) {
         margin: "5px",
         float: "left"
       }
+
+    const [clicked,setClicked] = useState(false);
+
+    const submitEducationInfo = (event,section) => {
+      props.handleSubmit(event,section);
+      setClicked(true);
+    }
+
+    const checkErrors = (educationInfos) => {
+        for(var i = 0; i < educationInfos.length; i++) {
+          if(educationInfos[i].college || educationInfos[i].degree || educationInfos[i].collegeStart || educationInfos[i].collegeEnd)
+            return false;
+        }
+        return true;
+    }
 
     return (<div name = "education-detail" className = "section" ><h3>Education Details</h3>
     
@@ -43,11 +58,11 @@ function EducationForm(props) {
     <Link to ="/resume-gen/info">
     <Button className = "button" variant="contained" color="secondary" style = {buttonStyle}>Previous</Button>
     </Link>
-    <Button type = "submit" onClick = {(event) => {props.handleSubmit(event,"educationInfos")}} className = "button" variant="contained" color="secondary" style = {buttonStyle}>Validate Data</Button>
+    <Button type = "submit" onClick = {(event) => {submitEducationInfo(event,"educationInfos")}} className = "button" variant="contained" color="secondary" style = {buttonStyle}>NEXT</Button>
       
-   <Link to ="/resume-gen/work">
-    <Button className = "button" variant="contained" color="secondary" style = {buttonStyle}>Next</Button>
-    </Link>
+
+    {clicked && checkErrors(props.errors.educationInfos) && <Redirect to = "/resume-gen/work"/>}
+
     
 </div>)
 }

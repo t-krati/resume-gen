@@ -1,8 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React,{useState} from "react";
+import { Link , Redirect } from "react-router-dom";
 import "./FormStyle.css";
 import { TextareaAutosize , Button , TextField } from '@material-ui/core';
-//import { Editor } from "@tinymce/tinymce-react";
 
 function WorkForm(props) {
 
@@ -11,6 +10,22 @@ function WorkForm(props) {
         margin: "5px",
         float: "left"
     }
+
+    const [clicked,setClicked] = useState(false);
+
+    const submitWorkInfo = (event,section) => {
+      props.handleSubmit(event,section);
+      setClicked(true);
+    }
+
+    const checkErrors = (workInfos) => {
+      for(var i = 0; i < workInfos.length; i++) {
+        if(workInfos[i].company || workInfos[i].role || workInfos[i].workStart || workInfos[i].workEnd)
+          return false;
+      }
+      return true;
+  }
+
     return <div  name = "work-details" className = "section" >
       <h3>Work Details</h3>
       {props.inputs.workInfos.map( (workInfo,index) => {
@@ -31,7 +46,7 @@ function WorkForm(props) {
       {props.errors.workInfos.length > index && <span className = "errors">{props.errors.workInfos[index].workEnd}</span>}<br/>
 
       <TextareaAutosize 
-      style = {{width: "50%"}}
+      style = {{width: "50%", background: 'rgb(248, 247, 245)'}}
       name="workDescription"
       rowsMin = {10}
       placeholder="Describe your work"
@@ -47,10 +62,9 @@ function WorkForm(props) {
     <Link to ="/resume-gen/education">
     <Button className = "button" variant="contained" color="secondary" style = {buttonStyle}>Previous</Button>
     </Link>
-    <Button type = "submit" onClick = {(event) => {props.handleSubmit(event,"workInfos")}} className = "button" variant="contained" color="secondary" style = {buttonStyle}>Validate Data</Button>
-    <Link to ="/resume-gen/project">
-    <Button className = "button" variant="contained" color="secondary" style = {buttonStyle}>Next</Button>
-    </Link>
+    <Button type = "submit" onClick = {(event) => {submitWorkInfo(event,"workInfos")}} className = "button" variant="contained" color="secondary" style = {buttonStyle}>NEXT</Button>
+
+    {clicked && checkErrors(props.errors.workInfos) && <Redirect to = "/resume-gen/projects"/>}
     </div>
 }
     

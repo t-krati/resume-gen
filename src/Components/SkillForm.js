@@ -1,10 +1,11 @@
+import React,{useState} from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./FormStyle.css";
 
 function SkillForm(props) {
@@ -14,6 +15,21 @@ function SkillForm(props) {
     margin: "5px",
     float: "left"
   }
+
+  const [clicked,setClicked] = useState(false);
+
+      const submitSkills = (event,section) => {
+        props.handleSubmit(event,section);
+        setClicked(true);
+      }
+  
+      const checkErrors = (skills) => {
+        for(var i = 0; i < skills.length; i++) {
+          if(skills[i].skillName || skills[i].skillLevel)
+            return false;
+        }
+        return true;
+    }
 
     return (<div name = "skills"  className = "section" ><h3>Skills</h3>
     
@@ -44,13 +60,11 @@ function SkillForm(props) {
    
     <Button className = "button" variant="contained" name = "skills" color="secondary" style = {buttonStyle} onClick = {props.handleDynamicAddition} >+</Button>
     <Button className = "button" variant="contained" name = "skills" color="secondary" style = {buttonStyle} onClick = {props.handleDynamicRemoval} >-</Button>
-  <Link to ="/resume-gen/project">
+  <Link to ="/resume-gen/projects">
     <Button className = "button" variant="contained" color="secondary" style = {buttonStyle}>Previous</Button>
     </Link>
-    <Button type = "submit" onClick = {(event) => {props.handleSubmit(event,"skills")}} className = "button" variant="contained" color="secondary" style = {buttonStyle}>Validate Data</Button>
-   <Link to ="/resume-gen/myresume">
-    <Button className = "button" variant="contained" color="secondary" style = {buttonStyle}>Next</Button>
-    </Link>
+    <Button type = "submit" onClick = {(event) => {submitSkills(event,"skills")}} className = "button" variant="contained" color="secondary" style = {buttonStyle}>NEXT</Button>
+    {clicked && checkErrors(props.errors.skills) && <Redirect to = "/resume-gen/myresume"/>}
 </div> );
 }
 

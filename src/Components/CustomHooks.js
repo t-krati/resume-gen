@@ -6,19 +6,25 @@ const useSignUpForm = (callback,validate) => {
                                         lastName: "",
                                         email : "",
                                         address : "", 
+                                        phone: "",
+                                        about: "",
                                         educationInfos : [{}],
                                         workInfos: [{}],
                                         projects: [{}],
                                         skills : [{}]});
  
-    const [errors,setErrors] = useState({firstName: "",
+    const [errors,setErrors] = useState({firstName: " ",
     lastName: "",
     email : "",
     address : "", 
+    phone : "",
+    about: "",
     educationInfos : [{}],
     workInfos: [{}],
     projects: [{}],
     skills : [{}]});  
+
+    
 
     const handleSubmit = (event,section) => {
         if(event) {

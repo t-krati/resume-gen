@@ -1,5 +1,5 @@
 import './App.css';
-import BasicDetails from "./Components/BasicDetails";
+import HomePage from "./Components/HomePage";
 import Template from "./Components/Template1";
 import { Route , BrowserRouter as Router } from "react-router-dom";
 import React from "react";
@@ -17,10 +17,10 @@ function App() {
   
   return <Router>
 
-     <div className = "headerStyle" >Enter Your Details</div>
+     <div className = "headerStyle" >Resume Generator</div>
 
      <Route path = {"/resume-gen"} exact>
-      <BasicDetails inputs = {inputs} handleInputChange = {handleInputChange}
+      <HomePage inputs = {inputs} handleInputChange = {handleInputChange}
         handleSubmit = {handleSubmit} />
     </Route>
 
@@ -45,7 +45,7 @@ function App() {
         />
     </Route>
 
-    <Route path = "/resume-gen/project">
+    <Route path = "/resume-gen/projects">
       <ProjectForm inputs = {inputs} handleInputChange = {handleInputChange}
         handleSubmit = {handleSubmit} handleDynamicAddition = {handleDynamicAddition}
         handleDynamicRemoval = {handleDynamicRemoval}
