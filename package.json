@@ -1,5 +1,5 @@
 {
-  "homepage": "http://t-krati.github.io/resume-gen",
+  "homepage": "https://resume-gen-react.herokuapp.com/",
   "name": "resumegen",
   "version": "0.1.0",
   "private": true,
