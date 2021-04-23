@@ -9,7 +9,7 @@ import "./FormStyle.css";
 function EducationForm(props) {
 
     const buttonStyle = {
-        background: "pink",
+        background: "#3D72A1",
         margin: "5px",
         float: "left"
       }
