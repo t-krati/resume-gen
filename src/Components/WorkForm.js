@@ -6,7 +6,7 @@ import { TextareaAutosize , Button , TextField } from '@material-ui/core';
 function WorkForm(props) {
 
     const buttonStyle = {
-        background: "pink",
+        background: "#3D72A1",
         margin: "5px",
         float: "left"
     }
@@ -46,7 +46,7 @@ function WorkForm(props) {
       {props.errors.workInfos.length > index && <span className = "errors">{props.errors.workInfos[index].workEnd}</span>}<br/>
 
       <TextareaAutosize 
-      style = {{width: "50%", background: 'rgb(248, 247, 245)'}}
+      style = {{width: "98%", background: 'white'}}
       name="workDescription"
       rowsMin = {10}
       placeholder="Describe your work"

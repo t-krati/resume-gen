@@ -9,7 +9,7 @@ import { TextareaAutosize , Button } from '@material-ui/core';
 function InfoForm(props) {
 
   const buttonStyle = {
-    background: "pink",
+    background: "#3D72A1",
     margin: "5px",
     float: "left"
   }
@@ -28,7 +28,7 @@ function InfoForm(props) {
       {props.errors.lastName && <span className = "errors">{props.errors.lastName}</span>}<br/>
       
       <TextareaAutosize 
-      style = {{width: "50%",background: 'rgb(248, 247, 245)'}}
+      style = {{width: "98%",background: 'white'}}
       name="about"
       margin = "normal"
       label = "About"

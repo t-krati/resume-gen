@@ -11,7 +11,7 @@ import "./FormStyle.css";
 function SkillForm(props) {
 
   const buttonStyle = {
-    background: "pink",
+    background: "#3D72A1",
     margin: "5px",
     float: "left"
   }
